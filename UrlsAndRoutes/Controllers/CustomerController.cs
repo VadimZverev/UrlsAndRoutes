@@ -6,12 +6,19 @@ using System.Web.Mvc;
 
 namespace UrlsAndRoutes.Controllers
 {
-    public class HomeController : Controller
+    public class CustomerController : Controller
     {
         public ActionResult Index()
         {
-            ViewBag.Controller = "Home";
+            ViewBag.Controller = "Customer";
             ViewBag.Action = "Index";
+            return View("ActionName");
+        }
+
+        public ActionResult List()
+        {
+            ViewBag.Controller = "Customer";
+            ViewBag.Action = "List";
             return View("ActionName");
         }
     }
