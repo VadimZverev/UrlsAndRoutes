@@ -21,7 +21,7 @@ namespace UrlsAndRoutes.Controllers
             ViewBag.Action = "CustomVariable";
             // Доступ к пользовательской переменной сегмента в методе действия
             ViewBag.CustomVariable = RouteData.Values["id"];
-            return View("ActionName");
+            return View();
         }
     }
 }
