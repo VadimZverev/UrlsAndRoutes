@@ -10,7 +10,10 @@ namespace UrlsAndRoutes
     public class RouteConfig
     {
         public static void RegisterRoutes(RouteCollection routes)
-        {
+        {   
+            routes.MapRoute("", "Public/{controller}/{action}",
+                new { controller = "Home", action = "Index" });
+
             routes.MapRoute("MyRoute", "{controller}/{action}",
                 new { controller = "Home", action = "Index" });
         }
