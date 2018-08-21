@@ -11,6 +11,10 @@ namespace UrlsAndRoutes
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
+            //  Создание алиасов для контроллера и действия
+            routes.MapRoute("ShopSchema2", "Shop/OldAction",
+                new { controller = "Home", action = "index" });
+
             //  Смешивание статических URL сегментов и значений по умолчанию
             routes.MapRoute("ShopSchema", "Shop/{action}",
                 new { controller = "Home" });
