@@ -19,8 +19,10 @@ namespace UrlsAndRoutes
             //    defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             //);
 
-            Route myRoute = new Route("{controller}/{action}", new MvcRouteHandler());
-            routes.Add("MyRoute", myRoute);
+            //Route myRoute = new Route("{controller}/{action}", new MvcRouteHandler());
+            //routes.Add("MyRoute", myRoute);
+
+            routes.MapRoute("MyRoute", "{controller}/{action}");
         }
     }
 }
