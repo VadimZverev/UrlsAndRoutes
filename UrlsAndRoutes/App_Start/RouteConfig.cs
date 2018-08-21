@@ -11,12 +11,15 @@ namespace UrlsAndRoutes
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
+            // URL паттерн со смешанным сегментом
             routes.MapRoute("", "X{controller}/{action}");
-
-            routes.MapRoute("", "Public/{controller}/{action}",
+            
+            // роут значений по умолчанию для действия и контроллера
+            routes.MapRoute("MyRoute", "{controller}/{action}",
                 new { controller = "Home", action = "Index" });
 
-            routes.MapRoute("MyRoute", "{controller}/{action}",
+            // URL паттерн со статическими сегментами
+            routes.MapRoute("", "Public/{controller}/{action}",
                 new { controller = "Home", action = "Index" });
         }
     }
