@@ -11,9 +11,13 @@ namespace UrlsAndRoutes
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
+            //  Смешивание статических URL сегментов и значений по умолчанию
+            routes.MapRoute("ShopSchema", "Shop/{action}",
+                new { controller = "Home" });
+
             // URL паттерн со смешанным сегментом
             routes.MapRoute("", "X{controller}/{action}");
-            
+
             // роут значений по умолчанию для действия и контроллера
             routes.MapRoute("MyRoute", "{controller}/{action}",
                 new { controller = "Home", action = "Index" });
