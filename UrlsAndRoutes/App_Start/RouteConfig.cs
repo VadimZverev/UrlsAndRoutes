@@ -11,6 +11,7 @@ namespace UrlsAndRoutes
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
+            // Определение дополнительных переменных в URL паттерне
             routes.MapRoute("MyRoute", "{controller}/{action}/{id}",
                 new
                 {
