@@ -93,15 +93,10 @@ namespace UrlsAndRoutes.Tests
         [TestMethod]
         public void TestIncomingRoutes()
         {
-            // проверяем на URL, который мы хотим получить
-            TestRouteMatch("~/Admin/Index", "Admin", "Index");
-
-            // Проверка на то, что значения были получены из сегментов
-            TestRouteMatch("~/One/Two", "One", "Two");
-
-            // гарантия того, что слишком много или слишком мало сегментов не походят
-            TestRouteFail("~/Admin/Index/Segment");
-            TestRouteFail("~/Admin");
+            TestRouteMatch("~/", "Home", "Index");
+            TestRouteMatch("~/Customer", "Customer", "Index");
+            TestRouteMatch("~/Customer/List", "Customer", "List");
+            TestRouteFail("~/Customer/List/All");
         }
     }
 }
