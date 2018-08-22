@@ -15,12 +15,12 @@ namespace UrlsAndRoutes.Controllers
             return View("ActionName");
         }
 
-        public ActionResult CustomVariable(string id)
+        public ActionResult CustomVariable(string id = "DefaultId")
         {
             ViewBag.Controller = "Home";
             ViewBag.Action = "CustomVariable";
             // Доступ к пользовательской переменной сегмента в методе действия
-            ViewBag.CustomVariable = id ?? "<отсутствует>";
+            ViewBag.CustomVariable = id;
             return View();
         }
     }
