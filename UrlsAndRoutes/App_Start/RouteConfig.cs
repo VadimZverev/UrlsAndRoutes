@@ -13,6 +13,7 @@ namespace UrlsAndRoutes
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.RouteExistingFiles = true;
+            routes.IgnoreRoute("Content/{filename}.html");
             routes.MapRoute("DiskFile", "Content/StaticContent.html",
                 new
                 {
