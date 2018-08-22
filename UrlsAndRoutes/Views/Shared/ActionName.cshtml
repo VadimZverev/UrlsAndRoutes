@@ -12,6 +12,12 @@
     <div>Контроллер: @ViewBag.Controller</div>
     <div>Действие: @ViewBag.Action</div>
     <div>
+        @Html.ActionLink("Это исходящий URL", "Index", "Home",
+            "https", "myserver.mydomain.com", "myFragmentName",
+            new { id= "MyId"},
+            new { id = "myAnchorID", @class = "myCSSClass" })
+    </div>
+    <div>
         @Html.ActionLink("Это исходящий URL",
             "Index", "Home", null, new { id = "myAnchorID", @class = "myCSSClass" })
     </div>
