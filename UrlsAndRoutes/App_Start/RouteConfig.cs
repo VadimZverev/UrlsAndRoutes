@@ -11,8 +11,7 @@ namespace UrlsAndRoutes
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
-            // Указание дополнительного URL сегмента
-            routes.MapRoute("MyRoute", "{controller}/{action}/{id}/{*catchall}",
+            routes.MapRoute("AddControllerRoute", "Home/{action}/{id}/{*catchall}",
                 new
                 {
                     controller = "Home",
@@ -20,6 +19,15 @@ namespace UrlsAndRoutes
                     id = UrlParameter.Optional
                 },
                 new[] { "UrlsAndRoutes.AdditionalControllers" });
+
+            routes.MapRoute("MyRoute", "{controller}/{action}/{id}/{*catchall}",
+                new
+                {
+                    controller = "Home",
+                    action = "Index",
+                    id = UrlParameter.Optional
+                },
+                new[] { "UrlsAndRoutes.Controllers" });
         }
     }
 }
