@@ -18,7 +18,8 @@ namespace UrlsAndRoutes
                     controller = "Home",
                     action = "Index",
                     id = UrlParameter.Optional
-                });
+                },
+                new[] { "UrlsAndRoutes.AdditionalControllers" });
         }
     }
 }
