@@ -3,6 +3,7 @@ using Moq;
 using System;
 using System.Reflection;
 using System.Web;
+using System.Web.Mvc;
 using System.Web.Routing;
 
 
@@ -90,23 +91,39 @@ namespace UrlsAndRoutes.Tests
             Assert.IsTrue(result == null || result.Route == null);
         }
 
+        //[TestMethod]
+        //public void TestIncomingRoutes()
+        //{
+        //    TestRouteMatch("~/", "Home", "Index");
+        //    TestRouteMatch("~/Home", "Home", "Index");
+        //    TestRouteMatch("~/Home/Index", "Home", "Index");
+        //    TestRouteMatch("~/Home/About/", "Home", "About");
+        //    TestRouteMatch("~/Home/About/MyId", "Home", "About", new { id = "MyId" });
+        //    TestRouteMatch("~/Home/About/MyId/More/Segments", "Home", "About",
+        //        new
+        //        {
+        //            id = "MyId",
+        //            catchall = "More/Segments"
+        //        });
+        //    TestRouteFail("~/Home/OtherAction");
+        //    TestRouteFail("~/Account/Index");
+        //    TestRouteFail("~/Account/About");
+        //}
+
         [TestMethod]
-        public void TestIncomingRoutes()
+        public void TestOutgoingRoutes()
         {
-            TestRouteMatch("~/", "Home", "Index");
-            TestRouteMatch("~/Home", "Home", "Index");
-            TestRouteMatch("~/Home/Index", "Home", "Index");
-            TestRouteMatch("~/Home/About/", "Home", "About");
-            TestRouteMatch("~/Home/About/MyId", "Home", "About", new { id = "MyId" });
-            TestRouteMatch("~/Home/About/MyId/More/Segments", "Home", "About",
-                new
-                {
-                    id = "MyId",
-                    catchall = "More/Segments"
-                });
-            TestRouteFail("~/Home/OtherAction");
-            TestRouteFail("~/Account/Index");
-            TestRouteFail("~/Account/About");
+            // Arrange
+            RouteCollection routes = new RouteCollection();
+            RouteConfig.RegisterRoutes(routes);
+            RequestContext context = new RequestContext(CreateHttpContext(), new RouteData());
+
+            // Act - сгенерировать URL
+            string result = UrlHelper.GenerateUrl(null, "Index", "Home", null,
+                routes, context, true);
+
+            // Assert
+            Assert.AreEqual("/App/DoIndex", result);
         }
     }
 }
