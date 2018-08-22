@@ -20,7 +20,7 @@ namespace UrlsAndRoutes.Controllers
             ViewBag.Controller = "Home";
             ViewBag.Action = "CustomVariable";
             // Доступ к пользовательской переменной сегмента в методе действия
-            ViewBag.CustomVariable = id;
+            ViewBag.CustomVariable = id ?? "<отсутствует>";
             return View();
         }
     }
