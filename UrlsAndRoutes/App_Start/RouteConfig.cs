@@ -11,13 +11,13 @@ namespace UrlsAndRoutes
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
-            // Определение дополнительных переменных в URL паттерне
+            // Указание дополнительного URL сегмента
             routes.MapRoute("MyRoute", "{controller}/{action}/{id}",
                 new
                 {
                     controller = "Home",
                     action = "Index",
-                    id = "DefaultId"
+                    id = UrlParameter.Optional
                 });
         }
     }
