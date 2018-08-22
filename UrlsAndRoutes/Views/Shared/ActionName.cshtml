@@ -12,7 +12,11 @@
     <div>Контроллер: @ViewBag.Controller</div>
     <div>Действие: @ViewBag.Action</div>
     <div>
-        @Html.RouteLink("Нажми меня", "MyOtherRoute","Index", "Customer")
+        @Html.RouteLink("Нажми меня", "MyOtherRoute", "Index", "Customer")
+    </div>
+    <div>
+        @Html.ActionLink("Нажми меня", "GetLegacyURL",
+        new { legacyURL = "~/articles/Windows_3.1_Overview.html" })
     </div>
     <div>
         Это URL:
