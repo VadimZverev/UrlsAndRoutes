@@ -12,32 +12,13 @@ namespace UrlsAndRoutes
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
-            routes.RouteExistingFiles = true;
-            routes.IgnoreRoute("Content/{filename}.html");
-            routes.MapRoute("DiskFile", "Content/StaticContent.html",
+            routes.MapRoute("MyRoute", "{controller}/{action}/{id}",
                 new
                 {
-                    controller = "Customer",
-                    action = "List"
+                    controller = "Home",
+                    action = "Index",
+                    id = UrlParameter.Optional
                 });
-
-            routes.MapRoute("ChromeRoute", "{*catchall}",
-                new { controller = "Home", action = "Index" },
-                new
-                {
-                    customConstraint = new UserAgentConstraint("Chrome")
-                },
-                new[] { "UrlsAndRoutes.AdditionalControllers" });
-
-            routes.MapRoute("MyRoute", "{controller}/{action}/{id}/{*catchall}",
-                new { controller = "Home", action = "Index", id = UrlParameter.Optional },
-                new
-                {
-                    controller = "^H.*",
-                    action = "Index|About",
-                    httpMethod = new HttpMethodConstraint("GET")
-                },
-                new[] { "UrlsAndRoutes.Controllers" });
         }
     }
 }
