@@ -31,5 +31,10 @@ namespace UrlsAndRoutes.Controllers
             // ....сделать что-то с URL
             return View();
         }
+
+        public RedirectToRouteResult MyRouteAction()
+        {
+            return RedirectToAction("Index");
+        }
     }
 }
