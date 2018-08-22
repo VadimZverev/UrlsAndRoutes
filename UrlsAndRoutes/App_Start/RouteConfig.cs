@@ -12,7 +12,7 @@ namespace UrlsAndRoutes
         public static void RegisterRoutes(RouteCollection routes)
         {
             // Указание дополнительного URL сегмента
-            routes.MapRoute("MyRoute", "{controller}/{action}/{id}",
+            routes.MapRoute("MyRoute", "{controller}/{action}/{id}/{*catchall}",
                 new
                 {
                     controller = "Home",
