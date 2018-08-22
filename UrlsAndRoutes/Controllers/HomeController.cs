@@ -24,6 +24,7 @@ namespace UrlsAndRoutes.Controllers
             return View();
         }
 
+        // Создание исходящего URL в методе действия
         public ViewResult MyActionMethod()
         {
             string myActionUrl = Url.Action("Index", new { id = "MyID" });
@@ -32,6 +33,7 @@ namespace UrlsAndRoutes.Controllers
             return View();
         }
 
+        // Перенаправление на другое действие
         public RedirectToRouteResult MyRouteAction()
         {
             return RedirectToAction("Index");
