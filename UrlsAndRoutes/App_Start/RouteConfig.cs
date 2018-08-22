@@ -13,7 +13,12 @@ namespace UrlsAndRoutes
         {
             routes.MapRoute("MyRoute", "{controller}/{action}/{id}/{*catchall}",
                 new { controller = "Home", action = "Index", id = UrlParameter.Optional },
-                new { controller = "^H.*", action = "^Index$|^About$" },
+                new
+                {
+                    controller = "^H.*",
+                    action = "Index|About",
+                    httpMethod = new HttpMethodConstraint("GET")
+                },
                 new[] { "UrlsAndRoutes.Controllers" });
         }
     }
