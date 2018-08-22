@@ -13,6 +13,10 @@
     <div>Действие: @ViewBag.Action</div>
     <div>
         @Html.ActionLink("Это исходящий URL",
+            "Index", "Home", null, new { id = "myAnchorID", @class = "myCSSClass" })
+    </div>
+    <div>
+        @Html.ActionLink("Это исходящий URL",
             "CustomVariable", new { id = "Hello" })
     </div>
     <div>
