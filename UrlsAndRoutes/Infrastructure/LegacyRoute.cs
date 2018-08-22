@@ -13,23 +13,24 @@ namespace UrlsAndRoutes.Infrastructure
         {
             urls = targetUrls;
         }
-
         public override RouteData GetRouteData(HttpContextBase httpContext)
         {
             RouteData result = null;
-            string requestURL =
-                httpContext.Request.AppRelativeCurrentExecutionFilePath;
-            if (urls.Contains(requestURL, StringComparer.OrdinalIgnoreCase))
+            string requestedURL =
+              httpContext.Request.AppRelativeCurrentExecutionFilePath;
+            if (urls.Contains(requestedURL, StringComparer.OrdinalIgnoreCase))
             {
                 result = new RouteData(this, new MvcRouteHandler());
                 result.Values.Add("controller", "Legacy");
                 result.Values.Add("action", "GetLegacyURL");
-                result.Values.Add("legacyURL", requestURL);
+                result.Values.Add("legacyURL", requestedURL);
             }
             return result;
         }
-
         public override VirtualPathData GetVirtualPath(RequestContext requestContext,
-            RouteValueDictionary values) => null;
+        RouteValueDictionary values)
+        {
+            return null;
+        }
     }
 }
