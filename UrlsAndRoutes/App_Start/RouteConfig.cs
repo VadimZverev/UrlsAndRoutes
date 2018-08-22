@@ -13,6 +13,13 @@ namespace UrlsAndRoutes
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.RouteExistingFiles = true;
+            routes.MapRoute("DiskFile", "Content/StaticContent.html",
+                new
+                {
+                    controller = "Customer",
+                    action = "List"
+                });
+
             routes.MapRoute("ChromeRoute", "{*catchall}",
                 new { controller = "Home", action = "Index" },
                 new
