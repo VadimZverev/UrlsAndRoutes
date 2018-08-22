@@ -38,5 +38,16 @@ namespace UrlsAndRoutes.Controllers
         {
             return RedirectToAction("Index");
         }
+
+        // Перенаправление на URL, который сгенерирован из свойств анонимного типа
+        public RedirectToRouteResult MyActionNewRoute()
+        {
+            return RedirectToRoute(new
+            {
+                controller = "Home",
+                action = "Index",
+                id = "MyID"
+            });
+        }
     }
 }
