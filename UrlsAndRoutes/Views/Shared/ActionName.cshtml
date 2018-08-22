@@ -12,6 +12,9 @@
     <div>Контроллер: @ViewBag.Controller</div>
     <div>Действие: @ViewBag.Action</div>
     <div>
+        @Html.RouteLink("Нажми меня", "MyOtherRoute","Index", "Customer")
+    </div>
+    <div>
         Это URL:
         @Url.Action("Index", "Home", new { id = "MyId" })
     </div>
